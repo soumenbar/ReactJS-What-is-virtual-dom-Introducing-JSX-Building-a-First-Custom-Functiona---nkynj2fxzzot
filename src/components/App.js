@@ -7,16 +7,18 @@ const App = () => {
 
   let num;
   let intVal;
+  var re = new RegExp("/^[1-9]\d*$/gm");
   
   
   function countDown(e){
     if(e.keyCode==13){
       clearInterval(intVal);
       num=Math.floor(document.getElementById("timeCount").value);
-      if(num==0){
+      if(num==0 || (!re.test(num) )){
         setTimee(0);
         return;
       }
+      else{
       
       
       setTimee(num--);
@@ -26,6 +28,7 @@ const App = () => {
           clearInterval(intVal);
       },1000);
     }
+  }
   }
 
   return (
