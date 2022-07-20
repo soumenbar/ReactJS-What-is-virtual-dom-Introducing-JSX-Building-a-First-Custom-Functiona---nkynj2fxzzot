@@ -7,16 +7,17 @@ const App = () => {
 
   let num;
   let intVal;
-  var re = new RegExp(/^[1-9]\d*$/gm);
+  let regx = /^\d+$/;
   
   
   function countDown(e){
     if(e.keyCode==13){
       clearInterval(intVal);
       num=Math.floor(document.getElementById("timeCount").value);
-      if(num===0 || !re.test(num) ){
+      if(num===0 || !regx.test(num) ){
         clearInterval(intVal);
-        setTimee(0);
+        //setTimee(0);
+        document.getElementById("current-time").innerText=0;
       
       }
       else{
