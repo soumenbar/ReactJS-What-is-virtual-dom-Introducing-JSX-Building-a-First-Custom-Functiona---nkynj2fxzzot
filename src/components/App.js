@@ -13,6 +13,11 @@ const App = () => {
     if(e.keyCode==13){
       clearInterval(intVal);
       num=Math.floor(document.getElementById("timeCount").value);
+      if(num==0){
+        setTimee(0);
+        return;
+      }
+      
       
       setTimee(num--);
       intVal=setInterval(()=>{
