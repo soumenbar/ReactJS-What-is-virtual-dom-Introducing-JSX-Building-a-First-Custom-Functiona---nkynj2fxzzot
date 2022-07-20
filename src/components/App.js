@@ -12,7 +12,7 @@ const App = () => {
   function countDown(e){
     if(e.keyCode==13){
       clearInterval(intVal);
-      num=document.getElementById("timeCount").value;
+      num=Math.floor(document.getElementById("timeCount").value);
       
       setTimee(num--);
       intVal=setInterval(()=>{
