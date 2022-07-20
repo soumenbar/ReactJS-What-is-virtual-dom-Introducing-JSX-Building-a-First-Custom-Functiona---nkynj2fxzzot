@@ -14,7 +14,8 @@ const App = () => {
     if(e.keyCode==13){
       clearInterval(intVal);
       num=Math.floor(document.getElementById("timeCount").value);
-      if(num==0 || !re.test(num) ){
+      if(num===0 || !re.test(num) ){
+        clearInterval(intVal);
         setTimee(0);
       
       }
