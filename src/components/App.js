@@ -10,11 +10,11 @@ const App = () => {
   
   let regx = /^\d+$/;
 
-  /*useEffect(()=>{
+  useEffect(()=>{
     return()=>{
       clearInterval(id.current);
     }
-  },[])*/
+  },[]);
   
   
   function countDown(e){
@@ -23,7 +23,7 @@ const App = () => {
       num=Math.floor(document.getElementById("timeCount").value);
       if(num===0 || !regx.test(num) ){
         clearInterval(id.current);
-        //setTimee(0);
+        setTimee(0);
         document.getElementById("current-time").innerText=0;
       
       }
