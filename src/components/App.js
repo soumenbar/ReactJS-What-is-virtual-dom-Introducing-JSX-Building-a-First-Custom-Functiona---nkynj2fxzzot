@@ -1,21 +1,28 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useRef } from "react";
 import '../styles/App.css';
 
 const App = () => {
   // write your code here 
   let[timee, setTimee]=useState("");
+  let id=useRef();
 
   let num;
-  let intVal;
+  
   let regx = /^\d+$/;
+
+  /*useEffect(()=>{
+    return()=>{
+      clearInterval(id.current);
+    }
+  },[])*/
   
   
   function countDown(e){
     if(e.keyCode==13){
-      clearInterval(intVal);
+      clearInterval(id.current);
       num=Math.floor(document.getElementById("timeCount").value);
       if(num===0 || !regx.test(num) ){
-        clearInterval(intVal);
+        clearInterval(id.current);
         //setTimee(0);
         document.getElementById("current-time").innerText=0;
       
@@ -24,10 +31,10 @@ const App = () => {
       
       
       setTimee(num--);
-      intVal=setInterval(()=>{
+      id.current=setInterval(()=>{
         setTimee(num--);
         if(num<0)
-          clearInterval(intVal);
+          clearInterval(id.current);
       },1000);
     }
   }
